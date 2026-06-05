@@ -5,6 +5,8 @@ Tema: _"Agro forte, futuro sustentável: equilíbrio entre produção e meio amb
 
 > Desenvolvido com HTML, CSS e JavaScript puro — sem bibliotecas, frameworks ou dependências externas.
 
+🌐 **Site publicado:** [mariahelenadeoliveira.github.io/BioLoop](https://mariahelenadeoliveira.github.io/BioLoop/)
+
 **Autora:** Maria Helena de Oliveira Ferreira  
 **Instituição:** SENAR-PR / Secretaria de Estado da Educação do Paraná
 
