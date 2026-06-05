@@ -1,0 +1,140 @@
+/* ==========================================================================
+   BIOLOOP — MODO DALTÔNICO
+   Paleta baseada em Wong, B. (2011). "Color blindness."
+   Nature Methods, 8(6), 441. DOI: 10.1038/nmeth.1618
+
+   Substituições para deuteranopia/protanopia (vermelho-verde).
+   Paleta segura:
+     Azul-céu   #56B4E9  (substitui ciano)
+     Azul-royal #0072B2  (substitui verde)
+     Âmbar      #E69F00  (substitui laranja)
+     Vermelhão  #D55E00  (substitui vermelho)
+   ========================================================================== */
+
+/* Sobrescreve as CSS custom properties para toda a página */
+.colorblind-mode {
+  --cyan:       #56b4e9;
+  --cyan-dim:   rgba(86, 180, 233, 0.15);
+  --green:      #0072b2;
+  --green-dim:  rgba(0, 114, 178, 0.15);
+  --orange:     #e69f00;
+  --orange-dim: rgba(230, 159, 0, 0.15);
+  --red:        #d55e00;
+  --red-dim:    rgba(213, 94, 0, 0.15);
+  --grad-brand: linear-gradient(135deg, #56b4e9, #0072b2);
+}
+
+/* Barras de progresso */
+.colorblind-mode .progress-fill--cyan   { background: #56b4e9; }
+.colorblind-mode .progress-fill--green  { background: #0072b2; }
+.colorblind-mode .progress-fill--orange { background: #e69f00; }
+.colorblind-mode .progress-fill--red    { background: #d55e00; }
+
+/* Logo */
+.colorblind-mode .logo__bio  { color: #56b4e9; }
+.colorblind-mode .logo__loop { color: #0072b2; }
+
+/* Splash screen */
+.colorblind-mode .splash-letter.tech   { color: #56b4e9; }
+.colorblind-mode .splash-letter.nature { color: #0072b2; }
+
+/* Gradiente do texto hero */
+.colorblind-mode .gradient-text {
+  background: linear-gradient(135deg, #56b4e9, #0072b2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Botão primário */
+.colorblind-mode .btn--primary {
+  background: linear-gradient(135deg, #56b4e9, #0072b2);
+  box-shadow: 0 0 24px rgba(86, 180, 233, 0.25);
+}
+
+/* Botão accent */
+.colorblind-mode .btn--accent {
+  background: #56b4e9;
+  color: #07090f;
+}
+
+/* Seção tag */
+.colorblind-mode .section-tag {
+  color: #56b4e9;
+  background: rgba(86, 180, 233, 0.12);
+  border-color: rgba(86, 180, 233, 0.25);
+}
+
+/* Pontos de métrica */
+.colorblind-mode .metric-dot--cyan   { background: #56b4e9; box-shadow: 0 0 6px #56b4e9; }
+.colorblind-mode .metric-dot--green  { background: #0072b2; box-shadow: 0 0 6px #0072b2; }
+.colorblind-mode .metric-dot--orange { background: #e69f00; box-shadow: 0 0 6px #e69f00; }
+.colorblind-mode .metric-dot--red    { background: #d55e00; box-shadow: 0 0 6px #d55e00; }
+
+/* Números de etapas */
+.colorblind-mode .flow-step__num,
+.colorblind-mode .flow-step__icon { color: #56b4e9; }
+.colorblind-mode .flow-step:hover { border-color: #56b4e9; }
+
+/* Cards problema/solução */
+.colorblind-mode .problem-card--danger  { border-top-color: #d55e00; }
+.colorblind-mode .problem-card--success { border-top-color: #0072b2; }
+.colorblind-mode .problem-card--danger .problem-card__icon  { background: rgba(213, 94, 0, 0.12); color: #d55e00; }
+.colorblind-mode .problem-card--success .problem-card__icon { background: rgba(0, 114, 178, 0.12); color: #0072b2; }
+.colorblind-mode .problem-card--danger .problem-card__list li::before  { background: #d55e00; }
+.colorblind-mode .problem-card--success .problem-card__list li::before { background: #0072b2; }
+.colorblind-mode .problem-card--danger:hover  { box-shadow: 0 12px 40px rgba(213, 94, 0, 0.15); }
+.colorblind-mode .problem-card--success:hover { box-shadow: 0 12px 40px rgba(0, 114, 178, 0.15); }
+
+/* Glossário — bordas dos cards */
+.colorblind-mode .glossary-card--red    { border-left-color: #d55e00; }
+.colorblind-mode .glossary-card--green  { border-left-color: #0072b2; }
+.colorblind-mode .glossary-card--orange { border-left-color: #e69f00; }
+.colorblind-mode .glossary-card--cyan   { border-left-color: #56b4e9; }
+
+/* Glossário — títulos dos grupos */
+.colorblind-mode .glossary-group__title--red    { color: #d55e00; }
+.colorblind-mode .glossary-group__title--green  { color: #0072b2; }
+.colorblind-mode .glossary-group__title--orange { color: #e69f00; }
+.colorblind-mode .glossary-group__title--cyan   { color: #56b4e9; }
+
+/* Filtros do glossário */
+.colorblind-mode .filter-btn--red.filter-btn--active,
+.colorblind-mode .filter-btn--red:hover {
+  color: #d55e00; border-color: #d55e00; background: rgba(213, 94, 0, 0.12);
+}
+.colorblind-mode .filter-btn--green.filter-btn--active,
+.colorblind-mode .filter-btn--green:hover {
+  color: #0072b2; border-color: #0072b2; background: rgba(0, 114, 178, 0.12);
+}
+.colorblind-mode .filter-btn--orange.filter-btn--active,
+.colorblind-mode .filter-btn--orange:hover {
+  color: #e69f00; border-color: #e69f00; background: rgba(230, 159, 0, 0.12);
+}
+.colorblind-mode .filter-btn--cyan.filter-btn--active,
+.colorblind-mode .filter-btn--cyan:hover {
+  color: #56b4e9; border-color: #56b4e9; background: rgba(86, 180, 233, 0.12);
+}
+
+/* Focus/input */
+.colorblind-mode .field-input:focus {
+  border-color: #56b4e9;
+  box-shadow: 0 0 0 3px rgba(86, 180, 233, 0.15);
+}
+
+/* Highlight card de residências */
+.colorblind-mode .metric-card--highlight {
+  background: linear-gradient(135deg, rgba(0, 114, 178, 0.08), rgba(86, 180, 233, 0.05));
+  border-color: rgba(0, 114, 178, 0.2);
+}
+
+.colorblind-mode .metric-card__value--big { color: #0072b2; }
+
+/* Combinação: daltônico + alto contraste */
+.colorblind-mode.high-contrast .progress-fill--cyan   { background: #56b4e9; }
+.colorblind-mode.high-contrast .progress-fill--green  { background: #56b4e9; }
+.colorblind-mode.high-contrast .progress-fill--orange { background: #e69f00; }
+.colorblind-mode.high-contrast .progress-fill--red    { background: #d55e00; }
+
+.colorblind-mode.high-contrast .problem-card--danger h3  { color: #d55e00 !important; }
+.colorblind-mode.high-contrast .problem-card--success h3 { color: #56b4e9 !important; }

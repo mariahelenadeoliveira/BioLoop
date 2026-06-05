@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BioLoop — Transforme dejetos bovinos em energia limpa e biofertilizante. Simule o potencial de bioenergia da sua propriedade rural." />
+  <title>BioLoop — Transição Energética na Pecuária</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/accessibility.css" />
+  <script src="assets/js/splash.js"></script>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       BARRA DE ACESSIBILIDADE
+  ════════════════════════════════════════════════════════════ -->
+  <div class="a11y-bar" role="toolbar" aria-label="Controles de acessibilidade">
+    <div class="a11y-bar__left">
+      <button id="btn-theme-light" class="a11y-icon-btn active" title="Tema Claro" aria-label="Ativar tema claro" aria-pressed="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+      <button id="btn-theme-dark" class="a11y-icon-btn" title="Tema Escuro" aria-label="Ativar tema escuro" aria-pressed="false">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+    <div class="a11y-bar__right">
+      <button id="btn-contrast" class="a11y-pill-btn">Alto Contraste</button>
+      <button id="btn-colorblind" class="a11y-pill-btn">Daltônico</button>
+      <button id="btn-font-up"   class="a11y-pill-btn" aria-label="Aumentar fonte">A+</button>
+      <button id="btn-font-down" class="a11y-pill-btn" aria-label="Diminuir fonte">A−</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CABEÇALHO / NAVEGAÇÃO
+  ════════════════════════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="BioLoop — ir para o início">
+        <span class="logo__bio">Bio</span><span class="logo__loop">Loop</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <ul role="list">
+          <li><a href="#problema" class="nav-link">O Problema</a></li>
+          <li><a href="#logistica" class="nav-link">A Logística</a></li>
+          <li><a href="#simulador" class="nav-link">Simulador</a></li>
+          <li><a href="#glossario" class="nav-link">Glossário</a></li>
+          <li><a href="#fontes" class="nav-link">Fontes</a></li>
+        </ul>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ═══════════════════════════════════════════════════════
+         HERO
+    ════════════════════════════════════════════════════════════ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__blob hero__blob--1"></div>
+        <div class="hero__blob hero__blob--2"></div>
+        <div class="hero__blob hero__blob--3"></div>
+        <div class="hero__grid"></div>
+      </div>
+
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span class="badge-dot"></span>
+          Concurso Agrinho 2026 · Programação Front-End
+        </div>
+
+        <h1 id="hero-title" class="hero__title">
+          Agro Forte,<br/>
+          <span class="gradient-text">Futuro Sustentável</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          Transformando dejetos bovinos em autonomia energética e biofertilização.
+          Da fazenda para o futuro — sem desperdício.
+        </p>
+
+        <div class="hero__ctas">
+          <a href="#simulador" class="btn btn--primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Abrir Simulador
+          </a>
+          <a href="#problema" class="btn btn--ghost">
+            Entender o Problema
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="hero__stats" aria-label="Estatísticas de impacto">
+          <div class="stat-chip">
+            <span class="stat-chip__icon" aria-hidden="true">🐄</span>
+            <span>~215 Mi de bovinos no Brasil</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-chip__icon" aria-hidden="true">⚡</span>
+            <span>1 m³ de metano = 3,3 kWh</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-chip__icon" aria-hidden="true">🌱</span>
+            <span>GWP do CH₄: 27,9× o CO₂</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         O PROBLEMA
+    ════════════════════════════════════════════════════════════ -->
+    <section id="problema" class="section" aria-labelledby="problema-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">O Ciclo do Metano</span>
+          <h2 id="problema-title" class="section-title">Por que isso importa?</h2>
+          <p class="section-desc">O que parece lixo é na verdade um recurso mal gerenciado — e um risco climático real.</p>
+        </div>
+
+        <div class="two-col reveal">
+          <article class="problem-card problem-card--danger">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <h3>Cenário Tradicional</h3>
+            <p>O descarte incorreto de dejetos bovinos gera decomposição anaeróbica a céu aberto. Isso libera toneladas de <strong>Metano (CH₄)</strong> na atmosfera — um gás 27,9× mais nocivo que o CO₂ — e contamina lençóis freáticos.</p>
+            <ul class="problem-card__list" aria-label="Consequências do cenário tradicional">
+              <li>Emissões de GEE não controladas</li>
+              <li>Contaminação hídrica</li>
+              <li>Perda de recursos valiosos</li>
+            </ul>
+          </article>
+
+          <article class="problem-card problem-card--success">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3>A Solução BioLoop</h3>
+            <p>Com <strong>Biodigestores Termofílicos</strong> e coleta hermética, capturamos o metano antes que escape. O gás vira eletricidade e biocombustível. O resíduo vira adubo natural que substitui o NPK mineral importado.</p>
+            <ul class="problem-card__list" aria-label="Benefícios da solução BioLoop">
+              <li>Energia limpa e renovável</li>
+              <li>Biofertilizante de alta qualidade</li>
+              <li>Créditos de carbono (CO₂eq)</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Quiz de conhecimentos -->
+        <div id="quiz-container" class="quiz-container reveal" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         LOGÍSTICA
+    ════════════════════════════════════════════════════════════ -->
+    <section id="logistica" class="section section--alt" aria-labelledby="logistica-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Logística Reversa</span>
+          <h2 id="logistica-title" class="section-title">Do resíduo ao recurso</h2>
+          <p class="section-desc">Três etapas transformam um passivo ambiental em fonte de renda e energia.</p>
+        </div>
+
+        <div class="flow-steps reveal">
+          <article class="flow-step">
+            <div class="flow-step__num" aria-hidden="true">01</div>
+            <div class="flow-step__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <h3>Coleta Hermética</h3>
+            <p>Caminhões-tanque especiais sugam os dejetos diretamente das canaletas de confinamento sem deixar o metano escapar.</p>
+          </article>
+
+          <div class="flow-step__arrow" aria-hidden="true">
+            <svg width="40" height="16" viewBox="0 0 40 16" fill="none"><path d="M0 8H36M36 8L29 2M36 8L29 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <article class="flow-step">
+            <div class="flow-step__num" aria-hidden="true">02</div>
+            <div class="flow-step__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <h3>Biodigestão</h3>
+            <p>O material é processado em usinas regionais de forma hermética, monitorado por sensores de precisão a 50–60°C (termofílico).</p>
+          </article>
+
+          <div class="flow-step__arrow" aria-hidden="true">
+            <svg width="40" height="16" viewBox="0 0 40 16" fill="none"><path d="M0 8H36M36 8L29 2M36 8L29 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <article class="flow-step">
+            <div class="flow-step__num" aria-hidden="true">03</div>
+            <div class="flow-step__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3>Geração de Valor</h3>
+            <p>O metano vira eletricidade e biocombustível. O digestato vira biofertilizante NPK natural, substituindo importações.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SIMULADOR
+    ════════════════════════════════════════════════════════════ -->
+    <section id="simulador" class="section" aria-labelledby="simulador-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Calculadora Interativa</span>
+          <h2 id="simulador-title" class="section-title">Painel de Bioenergia</h2>
+          <p class="section-desc">Configure sua propriedade e veja o potencial de conversão ecológica em tempo real.</p>
+        </div>
+
+        <div class="simulator reveal">
+          <!-- PAINEL DE ENTRADA -->
+          <div class="sim-input" role="form" aria-label="Configuração da propriedade">
+            <h3 class="sim-panel-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+              Configuração
+            </h3>
+
+            <form id="sim-form" onsubmit="return false;" novalidate>
+              <div class="field-group">
+                <label for="cattle-count" class="field-label">
+                  Tamanho do Rebanho
+                  <span class="field-unit">(cabeças de gado)</span>
+                </label>
+                <input type="number" id="cattle-count" class="field-input" min="1" max="100000"
+                  placeholder="Ex: 150" value="100" aria-describedby="cattle-count-hint" />
+                <span id="cattle-count-hint" class="field-hint">Entre 1 e 100.000 cabeças</span>
+              </div>
+
+              <div class="field-group">
+                <label id="management-label" for="management-select-btn" class="field-label">Tipo de Manejo</label>
+
+                <!-- Dropdown customizado com ícones SVG -->
+                <div class="cselect" id="management-select" role="combobox"
+                     aria-expanded="false" aria-haspopup="listbox"
+                     aria-labelledby="management-label">
+
+                  <!-- Botão trigger (visível) -->
+                  <button class="cselect__trigger" id="management-select-btn" type="button"
+                          aria-label="Tipo de manejo selecionado: Totalmente Confinado"
+                          aria-controls="management-select-list" aria-expanded="false">
+                    <span class="cselect__cur-icon" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </span>
+                    <span class="cselect__cur-label">Totalmente Confinado</span>
+                    <svg class="cselect__chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+
+                  <!-- Lista de opções -->
+                  <ul class="cselect__list" id="management-select-list" role="listbox"
+                      aria-labelledby="management-label">
+
+                    <li class="cselect__option cselect__option--selected"
+                        role="option" aria-selected="true" data-value="confinado" tabindex="-1">
+                      <span class="cselect__opt-icon" aria-hidden="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                      </span>
+                      <div class="cselect__opt-text">
+                        <span class="cselect__opt-name">Totalmente Confinado</span>
+                        <span class="cselect__opt-desc">maior coleta · 12 kg/cabeça/dia</span>
+                      </div>
+                      <svg class="cselect__opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    </li>
+
+                    <li class="cselect__option"
+                        role="option" aria-selected="false" data-value="semiconfinado" tabindex="-1">
+                      <span class="cselect__opt-icon" aria-hidden="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>
+                      </span>
+                      <div class="cselect__opt-text">
+                        <span class="cselect__opt-name">Semi-confinado</span>
+                        <span class="cselect__opt-desc">coleta parcial · 7 kg/cabeça/dia</span>
+                      </div>
+                      <svg class="cselect__opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    </li>
+
+                    <li class="cselect__option"
+                        role="option" aria-selected="false" data-value="pasto" tabindex="-1">
+                      <span class="cselect__opt-icon" aria-hidden="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                      </span>
+                      <div class="cselect__opt-text">
+                        <span class="cselect__opt-name">Extensivo / Pasto Livre</span>
+                        <span class="cselect__opt-desc">menor coleta · 4 kg/cabeça/dia</span>
+                      </div>
+                      <svg class="cselect__opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    </li>
+
+                  </ul>
+
+                  <!-- Select nativo oculto — lido pelo simulator.js -->
+                  <select id="management-type" aria-hidden="true" tabindex="-1"
+                          style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;overflow:hidden;">
+                    <option value="confinado" selected>Totalmente Confinado</option>
+                    <option value="semiconfinado">Semi-confinado</option>
+                    <option value="pasto">Extensivo / Pasto Livre</option>
+                  </select>
+
+                </div><!-- /cselect -->
+              </div>
+
+              <button type="button" id="btn-simulate" class="btn btn--accent btn--full">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Processar Ciclo Energético
+              </button>
+            </form>
+
+            <div class="sim-note" role="note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Dados baseados em Embrapa, IPCC AR6 (2021) e ANEEL (2023).
+            </div>
+          </div>
+
+          <!-- PAINEL DE RESULTADOS -->
+          <div class="sim-output" aria-live="polite" aria-label="Resultados da simulação">
+            <div class="sim-output-header">
+              <h3 class="sim-panel-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                Métricas de Impacto
+              </h3>
+              <div class="period-toggle" id="period-toggle" hidden>
+                <button class="period-btn period-btn--active" data-period="dia" type="button">/ Dia</button>
+                <button class="period-btn" data-period="ano" type="button">/ Ano</button>
+              </div>
+            </div>
+
+            <!-- Métrica: Dejetos -->
+            <div class="metric-card metric-card--simple">
+              <div class="metric-card__header">
+                <span class="metric-card__label">
+                  <span class="metric-dot metric-dot--gray" aria-hidden="true"></span>
+                  Dejetos Processados / Dia
+                </span>
+                <button class="info-btn" aria-label="Saiba mais sobre Dejetos Processados"
+                  data-tooltip-id="tip-waste">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </button>
+              </div>
+              <span class="metric-card__value" id="val-waste">0 kg/dia</span>
+              <div class="tooltip" id="tip-waste" role="tooltip" hidden>
+                <strong>Dejetos Processados</strong>
+                <p>Massa total de dejetos coletáveis por dia, calculada por cabeça conforme o manejo: <b>Confinado: 12 kg/cab</b>, Semi: 7 kg/cab, Pasto: 4 kg/cab.</p>
+                <small>Fonte: Embrapa Gado de Corte &amp; Leite; FAO (2013)</small>
+              </div>
+            </div>
+
+            <!-- Barra: Metano -->
+            <div class="metric-card metric-card--bar">
+              <div class="metric-card__header">
+                <span class="metric-card__label">
+                  <span class="metric-dot metric-dot--cyan" aria-hidden="true"></span>
+                  Metano Retido / Evitado
+                </span>
+                <div class="metric-card__right">
+                  <span class="metric-card__value" id="txt-methane">0 m³/dia</span>
+                  <button class="info-btn" aria-label="Saiba mais sobre Metano Retido"
+                    data-tooltip-id="tip-methane">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso do metano retido">
+                <div class="progress-fill progress-fill--cyan" id="bar-methane" style="width:0%"></div>
+              </div>
+              <div class="tooltip" id="tip-methane" role="tooltip" hidden>
+                <strong>Metano Retido (CH₄)</strong>
+                <p>Volume de metano capturado antes de escapar à atmosfera. Calculado como <b>60% do biogás</b> produzido (0,045 m³ de biogás por kg de dejeto).</p>
+                <small>Fonte: PROBIOGÁS / MMA-GIZ (2015); Embrapa Suínos e Aves</small>
+              </div>
+            </div>
+
+            <!-- Barra: Energia -->
+            <div class="metric-card metric-card--bar">
+              <div class="metric-card__header">
+                <span class="metric-card__label">
+                  <span class="metric-dot metric-dot--green" aria-hidden="true"></span>
+                  Energia Elétrica Gerada
+                </span>
+                <div class="metric-card__right">
+                  <span class="metric-card__value" id="txt-energy">0 kWh/dia</span>
+                  <button class="info-btn" aria-label="Saiba mais sobre Energia Elétrica"
+                    data-tooltip-id="tip-energy">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso de energia gerada">
+                <div class="progress-fill progress-fill--green" id="bar-energy" style="width:0%"></div>
+              </div>
+              <div class="tooltip" id="tip-energy" role="tooltip" hidden>
+                <strong>Energia Elétrica (kWh)</strong>
+                <p>Eletricidade gerada pela queima do metano em motor-gerador com <b>33% de eficiência</b>. Poder calorífico do CH₄: 9,97 kWh/m³.</p>
+                <small>Fonte: IEA / EPE (Empresa de Pesquisa Energética); ANEEL</small>
+              </div>
+            </div>
+
+            <!-- Barra: NPK -->
+            <div class="metric-card metric-card--bar">
+              <div class="metric-card__header">
+                <span class="metric-card__label">
+                  <span class="metric-dot metric-dot--orange" aria-hidden="true"></span>
+                  Substituição de NPK Químico
+                </span>
+                <div class="metric-card__right">
+                  <span class="metric-card__value" id="txt-npk">0 kg/dia</span>
+                  <button class="info-btn" aria-label="Saiba mais sobre Substituição NPK"
+                    data-tooltip-id="tip-npk">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso de substituição NPK">
+                <div class="progress-fill progress-fill--orange" id="bar-npk" style="width:0%"></div>
+              </div>
+              <div class="tooltip" id="tip-npk" role="tooltip" hidden>
+                <strong>Substituição de NPK</strong>
+                <p>Equivalência em fertilizante NPK mineral que o <b>digestato</b> (resíduo do biodigestor) pode substituir: 4 g de NPK por kg de dejeto processado.</p>
+                <small>Fonte: CQFS-RS/SC (2016); IAC — Circular 100</small>
+              </div>
+            </div>
+
+            <!-- Barra: CO₂ -->
+            <div class="metric-card metric-card--bar">
+              <div class="metric-card__header">
+                <span class="metric-card__label">
+                  <span class="metric-dot metric-dot--red" aria-hidden="true"></span>
+                  CO₂ Equivalente Evitado
+                </span>
+                <div class="metric-card__right">
+                  <span class="metric-card__value" id="txt-co2">0 t CO₂eq/dia</span>
+                  <button class="info-btn" aria-label="Saiba mais sobre CO₂ Equivalente"
+                    data-tooltip-id="tip-co2">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso de CO₂ evitado">
+                <div class="progress-fill progress-fill--red" id="bar-co2" style="width:0%"></div>
+              </div>
+              <div class="tooltip" id="tip-co2" role="tooltip" hidden>
+                <strong>CO₂ Equivalente Evitado</strong>
+                <p>Emissões de GEE evitadas ao capturar o metano. <b>GWP do CH₄ = 27,9× o CO₂</b> em 100 anos. Massa do CH₄: 0,716 kg/m³.</p>
+                <small>Fonte: IPCC Sixth Assessment Report (2021), Tab. 7.SM.7</small>
+              </div>
+            </div>
+
+            <!-- Métrica: Residências -->
+            <div class="metric-card metric-card--highlight">
+              <div class="metric-card__header">
+                <span class="metric-card__label">
+                  <span class="metric-dot metric-dot--green" aria-hidden="true"></span>
+                  Residências Abastecidas / Dia
+                </span>
+                <button class="info-btn" aria-label="Saiba mais sobre Residências Abastecidas"
+                  data-tooltip-id="tip-casas">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </button>
+              </div>
+              <span class="metric-card__value metric-card__value--big" id="txt-casas">0 residências</span>
+              <div class="tooltip" id="tip-casas" role="tooltip" hidden>
+                <strong>Residências Abastecidas</strong>
+                <p>Número de casas que poderiam ser abastecidas com a energia gerada. Consumo médio: <b>150 kWh/mês ≈ 5 kWh/dia</b> por residência.</p>
+                <small>Fonte: ANEEL (2023) — consumo residencial médio brasileiro</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /main -->
+
+  <!-- ═══════════════════════════════════════════════════════
+       GLOSSÁRIO (fora do <main> para rolar com o footer)
+  ════════════════════════════════════════════════════════════ -->
+  <section id="glossario" class="section section--glossary" aria-labelledby="glossario-title">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Aprenda com a Gente</span>
+        <h2 id="glossario-title" class="section-title">Glossário</h2>
+        <p class="section-desc">Clique em qualquer termo para expandir a definição. Para estudantes do Ensino Fundamental e Médio.</p>
+      </div>
+
+      <!-- Filtros de categoria -->
+      <div class="glossary-filters reveal" role="group" aria-label="Filtrar glossário por categoria">
+        <button class="filter-btn filter-btn--active" data-filter="all">Todos</button>
+        <button class="filter-btn filter-btn--red"    data-filter="problema">O Problema</button>
+        <button class="filter-btn filter-btn--green"  data-filter="solucao">A Solução</button>
+        <button class="filter-btn filter-btn--orange" data-filter="campo">O Campo</button>
+        <button class="filter-btn filter-btn--cyan"   data-filter="energia">Energia</button>
+      </div>
+
+      <!-- Grupo: O Problema -->
+      <div class="glossary-group reveal" data-category="problema">
+        <h3 class="glossary-group__title glossary-group__title--red">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          O Problema
+        </h3>
+        <div class="glossary-grid">
+          <details class="glossary-card glossary-card--red">
+            <summary>Passivos Ambientais</summary>
+            <p>Problemas ou danos ambientais causados por uma atividade e que ainda não foram resolvidos. Na pecuária, o exemplo mais comum são os dejetos do gado acumulados sem tratamento, que poluem o solo, os rios e liberam gases nocivos na atmosfera.</p>
+          </details>
+          <details class="glossary-card glossary-card--red">
+            <summary>Metano (CH₄)</summary>
+            <p>Gás incolor e inflamável produzido pela decomposição de matéria orgânica (como esterco). É um gás de efeito estufa poderoso: seu impacto no clima é <strong>27,9× maior que o CO₂</strong> em 100 anos (IPCC, 2021). Também é o principal componente do biogás.</p>
+          </details>
+          <details class="glossary-card glossary-card--red">
+            <summary>Gás de Efeito Estufa (GEE)</summary>
+            <p>Gases que ficam presos na atmosfera e retêm o calor do sol, causando o aquecimento global. Os principais são CO₂, CH₄ e N₂O. Quando liberados em excesso, contribuem para mudanças climáticas.</p>
+          </details>
+          <details class="glossary-card glossary-card--red">
+            <summary>CO₂ Equivalente (CO₂eq)</summary>
+            <p>Unidade de medida que padroniza o impacto climático de diferentes gases com base no CO₂. Como o metano aquece 27,9× mais que o CO₂, ao evitar 1 m³ de metano estamos evitando aproximadamente 20 kg de CO₂eq.</p>
+          </details>
+          <details class="glossary-card glossary-card--red">
+            <summary>Decomposição Anaeróbica</summary>
+            <p>Processo em que bactérias quebram matéria orgânica <strong>na ausência de oxigênio</strong>, produzindo metano como subproduto. Acontece naturalmente em lagoas de dejetos, lixões e fossas. No biodigestor, esse processo é controlado para capturar o gás.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Grupo: A Solução -->
+      <div class="glossary-group reveal" data-category="solucao">
+        <h3 class="glossary-group__title glossary-group__title--green">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          A Solução BioLoop
+        </h3>
+        <div class="glossary-grid">
+          <details class="glossary-card glossary-card--green">
+            <summary>Biodigestor</summary>
+            <p>Equipamento fechado (grande tanque vedado) onde matéria orgânica — como dejetos do gado — é processada por bactérias sem oxigênio. O resultado é biogás (rico em metano) e digestato (usado como fertilizante natural).</p>
+          </details>
+          <details class="glossary-card glossary-card--green">
+            <summary>Biodigestor Termofílico</summary>
+            <p>Tipo de biodigestor que opera em <strong>temperatura elevada (50–60°C)</strong>. O calor acelera as bactérias, aumentando a produção de biogás e eliminando patógenos. "Termofílico" vem do grego: <em>thermos</em> (calor) + <em>philos</em> (amigo).</p>
+          </details>
+          <details class="glossary-card glossary-card--green">
+            <summary>Biogás</summary>
+            <p>Mistura de gases produzida pela digestão anaeróbica de matéria orgânica. Composta principalmente de <strong>metano (~60%)</strong> e CO₂ (~40%). Pode ser queimado para gerar calor ou usado em motores para gerar eletricidade.</p>
+          </details>
+          <details class="glossary-card glossary-card--green">
+            <summary>Biometano</summary>
+            <p>Biogás purificado: após remover o CO₂ e impurezas, sobra o metano praticamente puro. Pode ser usado como combustível para veículos ou injetado na rede de gás natural, substituindo o gás fóssil com emissões muito menores.</p>
+          </details>
+          <details class="glossary-card glossary-card--green">
+            <summary>Coleta Hermética</summary>
+            <p>Coleta completamente vedada, <strong>sem abertura para o ar</strong>. Caminhões-tanque especiais sugam os dejetos sem deixar o metano escapar antes de chegar ao biodigestor. "Hermético" significa totalmente fechado, sem vazamentos.</p>
+          </details>
+          <details class="glossary-card glossary-card--green">
+            <summary>Digestato</summary>
+            <p>Material líquido ou lodo que sobra após a biodigestão. É rico em Nitrogênio, Fósforo e Potássio (NPK) — nutrientes essenciais para plantas. Funciona como biofertilizante natural, substituindo adubos químicos industriais importados.</p>
+          </details>
+          <details class="glossary-card glossary-card--green">
+            <summary>Biofertilizante</summary>
+            <p>Fertilizante produzido a partir de matéria orgânica — no caso do BioLoop, o digestato do biodigestor. Substituir o fertilizante químico pelo biofertilizante <strong>reduz custos, melhora o solo</strong> e diminui a dependência de importações.</p>
+          </details>
+          <details class="glossary-card glossary-card--green">
+            <summary>Logística Reversa</summary>
+            <p>Sistema de transporte que faz o resíduo "voltar" para o ciclo produtivo em vez de ser descartado. Na cadeia BioLoop: <strong>dejeto → coleta → biodigestão → energia + fertilizante</strong>. O que seria lixo se torna recurso.</p>
+          </details>
+          <details class="glossary-card glossary-card--green">
+            <summary>Autonomia Energética</summary>
+            <p>Capacidade de produzir a própria energia sem depender de fornecedores externos. Uma propriedade com biodigestor pode gerar eletricidade suficiente para suas próprias operações — motores, iluminação, refrigeração — sem pagar conta de luz.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Grupo: O Campo -->
+      <div class="glossary-group reveal" data-category="campo">
+        <h3 class="glossary-group__title glossary-group__title--orange">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          O Campo
+        </h3>
+        <div class="glossary-grid">
+          <details class="glossary-card glossary-card--orange">
+            <summary>Totalmente Confinado</summary>
+            <p>Sistema em que o gado permanece em currais fechados o tempo todo, recebendo alimentação no cocho. Produz a <strong>maior quantidade de dejetos coletáveis</strong> (aprox. 12 kg por cabeça por dia — Embrapa Gado de Corte).</p>
+          </details>
+          <details class="glossary-card glossary-card--orange">
+            <summary>Semi-confinado</summary>
+            <p>Sistema misto em que o gado passa parte do tempo no pasto e parte no confinamento. A coleta de dejetos é parcial (aprox. <strong>7 kg por cabeça por dia</strong> — Embrapa Gado de Leite), pois parte fica espalhada no campo.</p>
+          </details>
+          <details class="glossary-card glossary-card--orange">
+            <summary>Extensivo / Pasto Livre</summary>
+            <p>Sistema em que o gado pasta livremente em grandes áreas. Apenas a pequena fração depositada em áreas de concentração (bebedouros, cochos) pode ser coletada (aprox. <strong>4 kg por cabeça por dia</strong> — FAO, 2013).</p>
+          </details>
+          <details class="glossary-card glossary-card--orange">
+            <summary>NPK Mineral</summary>
+            <p>Fertilizante químico industrial com três nutrientes essenciais: <strong>N</strong>itrogênio, <strong>F</strong>ósforo (P) e <strong>P</strong>otássio (K). Geralmente importado e produzido a partir de mineração e combustíveis fósseis. O digestato pode substituir parte desse produto.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Grupo: Energia e Medidas -->
+      <div class="glossary-group reveal" data-category="energia">
+        <h3 class="glossary-group__title glossary-group__title--cyan">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Energia e Medidas
+        </h3>
+        <div class="glossary-grid">
+          <details class="glossary-card glossary-card--cyan">
+            <summary>Bioenergia</summary>
+            <p>Energia gerada a partir de materiais biológicos: resíduos animais, plantas, óleos vegetais, etc. É <strong>renovável</strong> porque os organismos que a produzem podem ser repostos naturalmente. O biogás gerado pelos dejetos bovinos é um exemplo claro.</p>
+          </details>
+          <details class="glossary-card glossary-card--cyan">
+            <summary>kWh (Quilowatt-hora)</summary>
+            <p>Unidade de medida de energia elétrica. É a quantidade de energia usada ao ligar um aparelho de <strong>1.000 W durante 1 hora</strong>. Uma residência brasileira consome em média 150 kWh por mês (ANEEL, 2023).</p>
+          </details>
+          <details class="glossary-card glossary-card--cyan">
+            <summary>m³ (Metro Cúbico)</summary>
+            <p>Unidade de volume equivalente a um cubo de 1 metro de lado. No BioLoop, usada para medir o volume de metano e biogás capturado. 1 m³ de metano puro gera <strong>aprox. 3,3 kWh</strong> com um gerador convencional.</p>
+          </details>
+          <details class="glossary-card glossary-card--cyan">
+            <summary>GWP — Potencial de Aquecimento Global</summary>
+            <p>Medida que compara o impacto climático de um gás com o do CO₂ em 100 anos. O CO₂ tem GWP = 1 (referência). O metano tem <strong>GWP = 27,9</strong>, ou seja, é 27,9× mais danoso ao clima (IPCC AR6, 2021).</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FONTES E REFERÊNCIAS CIENTÍFICAS
+  ════════════════════════════════════════════════════════════ -->
+  <section id="fontes" class="section section--sources" aria-labelledby="fontes-title">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Ciência por trás do BioLoop</span>
+        <h2 id="fontes-title" class="section-title">Referências Oficiais</h2>
+        <p class="section-desc">
+          Todas as métricas desta aplicação são baseadas em publicações verificadas de órgãos científicos,
+          governamentais e internacionais. Explore as fontes primárias.
+        </p>
+      </div>
+
+      <!-- ── CATEGORIA: Clima e Emissões ── -->
+      <div class="ref-category reveal">
+        <h3 class="ref-category__title ref-category__title--red">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Clima e Emissões Globais
+        </h3>
+        <div class="ref-grid">
+
+          <a href="https://www.ipcc.ch/report/ar6/wg1/" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--red" aria-label="Acessar IPCC AR6 — Sixth Assessment Report (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--en">EN</span>
+              <span class="ref-card__year">2021</span>
+            </div>
+            <h4 class="ref-card__title">IPCC — Sixth Assessment Report (AR6)</h4>
+            <p class="ref-card__org">Intergovernmental Panel on Climate Change</p>
+            <p class="ref-card__desc">GWP do CH₄ = 27,9× CO₂ em 100 anos (Tabela 7.SM.7). Base de todos os cálculos de CO₂eq do simulador.</p>
+            <span class="ref-card__link">ipcc.ch <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+          <a href="https://gml.noaa.gov/ccgg/trends_ch4/" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--red" aria-label="Acessar NOAA Global Monitoring Laboratory — Methane (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--en">EN</span>
+              <span class="ref-card__year">Contínuo</span>
+            </div>
+            <h4 class="ref-card__title">NOAA — Global CH₄ Trends</h4>
+            <p class="ref-card__org">National Oceanic and Atmospheric Administration</p>
+            <p class="ref-card__desc">Concentrações atmosféricas de metano em tempo real, medidas globalmente. Dados desde 1983.</p>
+            <span class="ref-card__link">gml.noaa.gov <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+          <a href="https://www.epa.gov/ghgemissions/understanding-global-warming-potentials" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--red" aria-label="Acessar EPA — Understanding Global Warming Potentials (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--en">EN</span>
+            </div>
+            <h4 class="ref-card__title">EPA — Understanding Global Warming Potentials</h4>
+            <p class="ref-card__org">U.S. Environmental Protection Agency</p>
+            <p class="ref-card__desc">Guia oficial sobre o Potencial de Aquecimento Global (GWP) de diferentes gases de efeito estufa.</p>
+            <span class="ref-card__link">epa.gov <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+          <a href="https://seeg.eco.br/" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--red" aria-label="Acessar SEEG Brasil (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--pt">PT</span>
+              <span class="ref-card__year">Contínuo</span>
+            </div>
+            <h4 class="ref-card__title">SEEG — Sistema de Estimativas de Emissões</h4>
+            <p class="ref-card__org">Observatório do Clima (Brasil)</p>
+            <p class="ref-card__desc">Estimativas anuais de emissões e remoções de GEE no Brasil, com dados desagregados por setor e estado.</p>
+            <span class="ref-card__link">seeg.eco.br <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+        </div>
+      </div><!-- /ref-category Clima -->
+
+      <!-- ── CATEGORIA: Bioenergia e Biogás ── -->
+      <div class="ref-category reveal">
+        <h3 class="ref-category__title ref-category__title--green">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Bioenergia e Biogás
+        </h3>
+        <div class="ref-grid">
+
+          <a href="https://www.fao.org/3/i3437e/i3437e.pdf" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--green" aria-label="Acessar FAO — Tackling Climate Change Through Livestock (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--en">EN</span>
+              <span class="ref-card__year">2013</span>
+            </div>
+            <h4 class="ref-card__title">FAO — Tackling Climate Change Through Livestock</h4>
+            <p class="ref-card__org">Food and Agriculture Organization of the United Nations</p>
+            <p class="ref-card__desc">Produção de dejetos por sistema de criação (pasto, semi-confinado, confinado). Fonte primária do simulador.</p>
+            <span class="ref-card__link">fao.org <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+          <a href="https://www.iea.org/fuels-and-technologies/bioenergy" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--green" aria-label="Acessar IEA — Bioenergy (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--en">EN</span>
+              <span class="ref-card__year">Contínuo</span>
+            </div>
+            <h4 class="ref-card__title">IEA — Bioenergy</h4>
+            <p class="ref-card__org">International Energy Agency</p>
+            <p class="ref-card__desc">Panorama global da bioenergia, biogás e biomassa. Capacidade instalada, projeções e análises de mercado.</p>
+            <span class="ref-card__link">iea.org <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+          <a href="https://www.irena.org/Energy-Transition/Technology/Bioenergy" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--green" aria-label="Acessar IRENA — Bioenergy (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--en">EN</span>
+              <span class="ref-card__year">Contínuo</span>
+            </div>
+            <h4 class="ref-card__title">IRENA — Bioenergy</h4>
+            <p class="ref-card__org">International Renewable Energy Agency</p>
+            <p class="ref-card__desc">Relatórios sobre custos, capacidade e potencial de bioenergia como parte da transição energética global.</p>
+            <span class="ref-card__link">irena.org <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+          <a href="https://abiogas.org.br/" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--green" aria-label="Acessar ABiogás — Associação Brasileira de Biogás (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--pt">PT</span>
+              <span class="ref-card__year">Contínuo</span>
+            </div>
+            <h4 class="ref-card__title">ABiogás — Panorama do Biogás no Brasil</h4>
+            <p class="ref-card__org">Associação Brasileira de Biogás e Biometano</p>
+            <p class="ref-card__desc">Cenário nacional do biogás, regulação setorial, dados de produção e projetos em operação no Brasil.</p>
+            <span class="ref-card__link">abiogas.org.br <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+        </div>
+      </div><!-- /ref-category Bioenergia -->
+
+      <!-- ── CATEGORIA: Pecuária Brasileira ── -->
+      <div class="ref-category reveal">
+        <h3 class="ref-category__title ref-category__title--orange">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Pecuária Brasileira
+        </h3>
+        <div class="ref-grid">
+
+          <a href="https://www.embrapa.br/gado-de-corte" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--orange" aria-label="Acessar Embrapa Gado de Corte (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--pt">PT</span>
+            </div>
+            <h4 class="ref-card__title">Embrapa Gado de Corte</h4>
+            <p class="ref-card__org">Empresa Brasileira de Pesquisa Agropecuária</p>
+            <p class="ref-card__desc">Produção de dejetos em sistema totalmente confinado (~12 kg/cabeça/dia). Fonte primária do simulador.</p>
+            <span class="ref-card__link">embrapa.br <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+          <a href="https://www.embrapa.br/gado-de-leite" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--orange" aria-label="Acessar Embrapa Gado de Leite (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--pt">PT</span>
+            </div>
+            <h4 class="ref-card__title">Embrapa Gado de Leite</h4>
+            <p class="ref-card__org">Empresa Brasileira de Pesquisa Agropecuária</p>
+            <p class="ref-card__desc">Dados de manejo semi-confinado (~7 kg/cabeça/dia) e práticas de sustentabilidade na pecuária leiteira.</p>
+            <span class="ref-card__link">embrapa.br <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+          <a href="https://abiec.com.br/" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--orange" aria-label="Acessar ABIEC — Anuário da Pecuária Brasileira (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--pt">PT</span>
+              <span class="ref-card__year">Anual</span>
+            </div>
+            <h4 class="ref-card__title">ABIEC — Anuário da Pecuária Brasileira</h4>
+            <p class="ref-card__org">Associação Brasileira das Indústrias Exportadoras de Carnes</p>
+            <p class="ref-card__desc">Dados do rebanho bovino nacional (~215 milhões de cabeças), produção, exportações e sustentabilidade.</p>
+            <span class="ref-card__link">abiec.com.br <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+          <a href="https://www.gov.br/agricultura/pt-br/assuntos/pecuaria" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--orange" aria-label="Acessar MAPA — Pecuária Sustentável (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--pt">PT</span>
+            </div>
+            <h4 class="ref-card__title">MAPA — Pecuária Sustentável</h4>
+            <p class="ref-card__org">Ministério da Agricultura, Pecuária e Abastecimento</p>
+            <p class="ref-card__desc">Políticas e programas federais para a pecuária sustentável, incluindo programas de biodigestão e crédito de carbono.</p>
+            <span class="ref-card__link">gov.br/agricultura <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+        </div>
+      </div><!-- /ref-category Pecuária -->
+
+      <!-- ── CATEGORIA: Energia e Regulação ── -->
+      <div class="ref-category reveal">
+        <h3 class="ref-category__title ref-category__title--cyan">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          Energia e Regulação no Brasil
+        </h3>
+        <div class="ref-grid">
+
+          <a href="https://www.aneel.gov.br/" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--cyan" aria-label="Acessar ANEEL — Agência Nacional de Energia Elétrica (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--pt">PT</span>
+              <span class="ref-card__year">2023</span>
+            </div>
+            <h4 class="ref-card__title">ANEEL — Agência Nacional de Energia Elétrica</h4>
+            <p class="ref-card__org">Governo Federal do Brasil</p>
+            <p class="ref-card__desc">Consumo médio residencial = 150 kWh/mês (dado de 2023). Referência direta da métrica de residências do simulador.</p>
+            <span class="ref-card__link">aneel.gov.br <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+          <a href="https://www.epe.gov.br/" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--cyan" aria-label="Acessar EPE — Empresa de Pesquisa Energética (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--pt">PT</span>
+              <span class="ref-card__year">Anual</span>
+            </div>
+            <h4 class="ref-card__title">EPE — Balanço Energético Nacional</h4>
+            <p class="ref-card__org">Empresa de Pesquisa Energética</p>
+            <p class="ref-card__desc">Dados anuais de geração, consumo e eficiência do setor elétrico brasileiro. Referência para eficiência de geradores a biogás.</p>
+            <span class="ref-card__link">epe.gov.br <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+          <a href="https://www.gov.br/mme/pt-br" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--cyan" aria-label="Acessar MME — Ministério de Minas e Energia (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--pt">PT</span>
+            </div>
+            <h4 class="ref-card__title">MME — Bioenergia e Energia Renovável</h4>
+            <p class="ref-card__org">Ministério de Minas e Energia</p>
+            <p class="ref-card__desc">Políticas nacionais de bioenergia, regulação do biometano e metas de energia renovável no planejamento energético do Brasil.</p>
+            <span class="ref-card__link">gov.br/mme <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+          <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/sirene" target="_blank" rel="noopener noreferrer"
+             class="ref-card ref-card--cyan" aria-label="Acessar SIRENE — Sistema de Registro Nacional de Emissões (abre em nova aba)">
+            <div class="ref-card__meta">
+              <span class="lang-badge lang-badge--pt">PT</span>
+              <span class="ref-card__year">Anual</span>
+            </div>
+            <h4 class="ref-card__title">SIRENE — Inventário Nacional de GEE</h4>
+            <p class="ref-card__org">Ministério de Ciência, Tecnologia e Inovação</p>
+            <p class="ref-card__desc">Inventário oficial brasileiro de emissões e remoções de gases de efeito estufa, com série histórica por setor econômico.</p>
+            <span class="ref-card__link">gov.br/mcti/sirene <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+
+        </div>
+      </div><!-- /ref-category Energia -->
+
+      <p class="ref-disclaimer reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Links abrem em nova aba. Conteúdos em inglês (EN) são publicações científicas internacionais de acesso aberto.
+        Todos os dados numéricos do simulador foram extraídos diretamente dessas fontes.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       RODAPÉ
+  ════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo"><span class="logo__bio">Bio</span><span class="logo__loop">Loop</span></span>
+        <p>Transformando a pecuária brasileira em uma fonte de energia limpa e sustentável.</p>
+      </div>
+      <div class="footer-info">
+        <p class="footer-info__label">Concurso Agrinho 2026</p>
+        <p>Programação Front-End — categoria estudantil</p>
+        <p>Desenvolvido com foco em sustentabilidade, acessibilidade e educação.</p>
+      </div>
+      <div class="footer-sources">
+        <p class="footer-info__label">Fontes Científicas</p>
+        <ul>
+          <li>Embrapa Gado de Corte &amp; Leite</li>
+          <li>IPCC Sixth Assessment Report (2021)</li>
+          <li>ANEEL — Agência Nacional de Energia Elétrica (2023)</li>
+          <li>PROBIOGÁS / MMA-GIZ (2015)</li>
+          <li>FAO — Livestock &amp; Environment (2013)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 BioLoop · Todos os direitos reservados · Agrinho 2026</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/simulator.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/quiz.js"></script>
+</body>
+</html>
